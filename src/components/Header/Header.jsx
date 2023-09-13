@@ -1,5 +1,5 @@
-const Header = ({toggleModal}) => {
-	//const Header = ({ showModal }) => {
+//const Header = ({toggleModal}) => {
+const Header = ({ showModal }) => {
 	return (
 		<nav className='navbar bg-dark mb-3'>
 			<div className='container-fluid'>
@@ -7,8 +7,8 @@ const Header = ({toggleModal}) => {
 					Navbar
 				</span>
 				<button 
-					onClick ={toggleModal}
-					//onClick={showModal}
+					//onClick ={toggleModal}
+					onClick={showModal}
 					className='btn btn-outline-success'
 				>
 					Open Modal

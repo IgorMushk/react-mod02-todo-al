@@ -1,10 +1,10 @@
-const Modal = ({ children, toggleModal }) => {
-	//const Modal = ({ children, closeModal }) => {
+//const Modal = ({ children, toggleModal }) => {
+const Modal = ({ children, closeModal }) => {
 	return (
 		<div
 			className='modal fade show'
 			style={{ display: 'block', backdropFilter: 'blur(5px)' }}
-			onClick ={toggleModal}
+			//onClick ={toggleModal}
 		>
 			<div className='modal-dialog'>
 				<div className='modal-content'>
@@ -14,8 +14,8 @@ const Modal = ({ children, toggleModal }) => {
 							type='button'
 							className='btn-close'
 							aria-label='Close'
-							onClick = {toggleModal}
-							//onClick={closeModal}
+							//onClick = {toggleModal}
+							onClick={closeModal}
 						></button>
 					</div>
 					<div className='modal-body'>{children}</div>
