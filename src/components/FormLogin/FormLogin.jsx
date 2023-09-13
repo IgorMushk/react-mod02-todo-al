@@ -4,7 +4,7 @@ class FormLogin extends Component {
 	state = {
 		email: '',
 		password: '',
-		isChecked: true,
+		isChecked: false,
 		gender: 'male',
 	}
 

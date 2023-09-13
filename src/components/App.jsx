@@ -25,6 +25,7 @@ class App extends Component {
 		const newUser = {
 			...data,
 			id: nanoid(),
+      //id: useId(), // через Rewact нужно так
 		}
 		console.log('newUser :>> ', newUser)
 	}
