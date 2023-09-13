@@ -9,6 +9,7 @@ class FormLogin extends Component {
 	}
 
 	handleChange = ({ target }) => {
+		console.log('target >>>', target)
 		this.setState({
 			[target.name]: target.value,
 		})
