@@ -11,14 +11,16 @@ const ToDoV1 = ({ todo, handleCheckCompleted, handleDelete }) => {
             checked={todo.completed}
             onChange={() => handleCheckCompleted(todo.id)}
           />
-          {todo.title}
+          {/* {todo.title} */}
+          <h5>title:{todo.title}</h5>
+          {todo.description}
         </div>
         <div className="col">
           <button
             type="button"
             className="btn-close"
             aria-label="Close"
-			onClick={()=>handleDelete(todo.id)}
+            onClick={() => handleDelete(todo.id)}
           ></button>
         </div>
       </div>

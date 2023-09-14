@@ -32,6 +32,7 @@ class FormCreateTodo extends Component {
 	}
 
 	render() {
+        console.log(this.state);
 		return (
 			<form className='mb-3' onSubmit={this.handleSubmit}>
 				<div className='mb-3'>

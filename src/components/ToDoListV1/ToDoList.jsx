@@ -62,6 +62,7 @@ class ToDoListV1 extends Component {
 			<>
 				<h1>My To-Do list</h1>
 				<FormCreateTodo createTodo={this.createTodo}/>
+				<FormFilterTodo/>
 				<ul className='list-group list-group-flush'>
 					{this.state.todoList.map((todo) => (
 						<ToDoV1
