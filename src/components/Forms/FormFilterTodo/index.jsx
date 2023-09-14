@@ -14,7 +14,7 @@ const FormFilterTodo = ({filterTodo}) => {
             type='text'
             onChange={handleChangeFilter}
             className='form-control'
-            id='exampleInputTodo'
+            id='exampleInputTodo' 
         />
     </div>
     )
