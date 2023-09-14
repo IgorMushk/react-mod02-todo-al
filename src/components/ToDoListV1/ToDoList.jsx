@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import ToDoV1 from '../ToDoV1/ToDo'
 import todo from '../todo.json'
+import FormCreateTodo from 'components/Forms/FormCreateTodo'
+import { nanoid } from 'nanoid'
 
 
 class ToDoListV1 extends Component {
@@ -23,10 +25,43 @@ class ToDoListV1 extends Component {
 		}))
 	}
 
+	// createTodo = (dataByForm) => {
+	// 	const isAlreadyExist = this.state.todo.find(
+	// 		(el) => el.title === dataByForm.title
+	// 	)
+	// 	if (isAlreadyExist) return alert('Already Exist')
+
+	// 	const newTodo = {
+	// 		...dataByForm,
+	// 		completed: false,
+	// 		id: nanoid(),
+	// 	}
+	// 	this.setState((prev) => ({
+	// 		todo: [newTodo, ...prev.todo],
+	// 	}))
+	// }
+	createTodo = (dataByForm) => {
+		const isAlreadyExist = this.state.todoList.find(
+			(el) => el.title === dataByForm.title
+		)
+		if (isAlreadyExist) return alert('Already Exist')
+
+		const newTodo = {
+			...dataByForm,
+			completed: false,
+			id: nanoid(),
+		}
+		this.setState((prev) => ({
+			todoList: [newTodo, ...prev.todoList],
+		}))
+	}
+
+
 	render() {
 		return (
 			<>
 				<h1>My To-Do list</h1>
+				<FormCreateTodo createTodo={this.createTodo}/>
 				<ul className='list-group list-group-flush'>
 					{this.state.todoList.map((todo) => (
 						<ToDoV1
