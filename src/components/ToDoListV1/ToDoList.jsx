@@ -3,11 +3,13 @@ import ToDoV1 from '../ToDoV1/ToDo'
 import todo from '../todo.json'
 import FormCreateTodo from 'components/Forms/FormCreateTodo'
 import { nanoid } from 'nanoid'
+import FormFilterTodo from 'components/Forms/FormFilterTodo'
 
 
 class ToDoListV1 extends Component {
 	state ={
 		todoList: todo,
+		filteredTodo: null,
 	}
 
 	handleCheckCompleted = (id) => {
@@ -56,21 +58,39 @@ class ToDoListV1 extends Component {
 		}))
 	}
 
+	// filterTodo = (filterQuery) => {
+	// 	this.setState((prev) => ({
+	// 		filteredTodo: prev.todo.filter((el) =>
+	// 			el.title.toLowerCase().includes(filterQuery.toLowerCase())
+	// 		),
+	// 	}))
+	// }
+
+	filterTodo = (filterQuery) => {
+		this.setState((prev) => ({
+			filteredTodo: prev.todoList.filter((el) =>
+				el.title.toLowerCase().includes(filterQuery.toLowerCase())
+			),
+		}))
+	}
 
 	render() {
 		return (
 			<>
 				<h1>My To-Do list</h1>
 				<FormCreateTodo createTodo={this.createTodo}/>
-				<FormFilterTodo/>
+				<FormFilterTodo filterTodo={this.filterTodo}/>
 				<ul className='list-group list-group-flush'>
-					{this.state.todoList.map((todo) => (
+					{/* {this.state.todoList.map((todo) => (
 						<ToDoV1
 							key={todo.id}
 							todo={todo}
 							handleCheckCompleted = {this.handleCheckCompleted}
 							handleDelete = {this.handleDelete}
 						/>
+					))} */}
+						{(this.state.filteredTodo ?? this.state.todoList).map((el) => (
+						<ToDoV1 todo={el} key={el.id} handleCheckCompleted = {this.handleCheckCompleted} handleDelete={this.handleDelete} />
 					))}
 				</ul>
 			</>

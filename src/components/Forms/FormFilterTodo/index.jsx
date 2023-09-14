@@ -1,7 +1,7 @@
 import React from 'react'
 
 const FormFilterTodo = ({filterTodo}) => {
-    const handleChange = ({ target: { value } }) => {
+    const handleChangeFilter = ({ target: { value } }) => {
 		filterTodo(value)
     }
     return (
@@ -10,9 +10,9 @@ const FormFilterTodo = ({filterTodo}) => {
             Filter
         </label>
         <input
-            name='title'
+            name='filter'
             type='text'
-            onChange={handleChange}
+            onChange={handleChangeFilter}
             className='form-control'
             id='exampleInputTodo'
         />
